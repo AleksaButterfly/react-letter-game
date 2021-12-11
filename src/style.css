@@ -1,0 +1,277 @@
+:root {
+  --appColor: royalblue;
+  --matterColorWhite: white;
+  --matterColorNegative: #e7e7e7;
+
+  --answerDelay: 26s;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container {
+  /* Style */
+  height: 100%;
+  width: 100%;
+  background-color: var(--matterColorNegative);
+
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Position */
+  position: relative;
+}
+
+.letter {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+  cursor: pointer;
+
+  /* Font */
+  color: var(--matterColorWhite);
+  font-weight: 600;
+  font-size: 18px;
+
+  /* Style */
+  background-color: var(--appColor);
+  border-radius: 4px;
+
+  /* Size */
+  height: 66px;
+  width: 66px;
+}
+
+.circle {
+  height: 144px;
+  width: 144px;
+
+  /* Style */
+  background-color: rgba(173, 216, 230, 0.4);
+  border-radius: 50%;
+
+  /* Position */
+  position: absolute;
+  top: 0;
+  left: -72px;
+}
+
+.circle2 {
+  /* Position */
+  top: -72px;
+  left: 0;
+}
+
+.selectedLetters {
+  /* Layout */
+  display: grid;
+  align-items: center;
+  grid-template-columns: repeat(6, 1fr);
+  grid-gap: 12px;
+
+  max-width: 800px;
+  padding: 0 24px;
+
+  /* Position */
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translate(-50%, 0px);
+}
+@media (min-width: 768px) {
+  .selectedLetters {
+    grid-template-columns: repeat(12, 1fr);
+  }
+}
+
+.selectedLetter {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  user-select: none;
+
+  /* Font */
+  color: var(--matterColorWhite);
+  font-weight: 600;
+  font-size: 16px;
+
+  /* Style */
+  background-color: var(--appColor);
+  border-radius: 4px;
+
+  /* Size */
+  height: 48px;
+  width: 48px;
+}
+
+.time {
+  /* Position */
+  position: fixed;
+  right: 24px;
+
+  /* Size */
+  height: calc(100vh - 50%);
+  width: 12px;
+
+  /* Style */
+  background: gray;
+  border-radius: 2px;
+}
+
+.timeFill {
+  /* Style */
+  background: var(--appColor);
+  border-radius: 2px;
+
+  /* Time animation */
+  transition: height var(--answerDelay) ease-in-out;
+}
+
+.timeSeconds {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Position */
+  position: fixed;
+  top: 24px;
+  right: 24px;
+
+  /* Style */
+  color: var(--matterColorWhite);
+  background: var(--appColor);
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+}
+
+.answerInputContainer {
+  display: inline;
+}
+
+.answerInput {
+  width: 160px;
+  background: var(--matterColorWhite);
+  box-shadow: 0 6px 10px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 0;
+  outline: 0;
+  padding: 22px 96px 22px 18px;
+}
+@media (min-width: 768px) {
+  .answerInput {
+    width: 260px;
+  }
+}
+
+.answerInputError {
+  /* Font */
+  color: red;
+  line-height: 24px;
+
+  /* Layout */
+  width: 240px;
+  margin-top: 12px;
+  margin-bottom: 0;
+}
+@media (min-width: 768px) {
+  .answerInputError {
+    width: 360px;
+  }
+}
+
+.answerButton {
+  /* Layout */
+  display: inline-block;
+
+  /* Font */
+  color: var(--matterColorWhite);
+  text-transform: uppercase;
+
+  /* Size & Position */
+  padding: 12px 36px;
+  margin-left: -72px;
+
+  /* Style */
+  background: var(--appColor);
+  box-shadow: 0 0 10px 2px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 0;
+  outline: 0;
+
+  /* Animation */
+  transition: all 200ms ease-in;
+  cursor: pointer;
+}
+.answerButton:hover {
+  background: #6c7ff2;
+}
+.answerButton:active {
+  background: #7f8ff4;
+  box-shadow: inset 0 0 10px 2px rgba(0, 0, 0, 0.2);
+}
+.answerButton:disabled {
+  background: var(--matterColorNegative);
+}
+
+.resultContainer {
+  /* Layout */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 24px;
+
+  /* Style */
+  background: var(--matterColorWhite);
+  border-radius: 4px;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+@media (min-width: 768px) {
+  .resultContainer {
+    padding: 48px;
+  }
+}
+
+.resultText {
+  margin: 24px 0;
+  max-width: 260px;
+
+  /* Font */
+  text-align: center;
+  line-height: 24px;
+}
+@media (min-width: 768px) {
+  .resultText {
+    margin: 48px 0 24px;
+  }
+}
+
+.resultLink {
+  text-decoration: none;
+  color: var(--appColor);
+}
+
+.resultIcon {
+  height: 72px;
+  width: 72px;
+}
+@media (min-width: 768px) {
+  .resultIcon {
+    height: 112px;
+    width: 112px;
+  }
+}
