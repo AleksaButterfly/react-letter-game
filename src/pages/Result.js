@@ -2,6 +2,9 @@ import React from 'react';
 import { Link, Navigate, useLocation } from 'react-router-dom';
 import { clearTimeouts } from '../util/helpers';
 import { Page, IconSuccess, IconFail } from '../components';
+
+// We import words from this package
+// Feel free to use yours
 import wordlist from 'wordlist-english';
 
 const Result = () => {
