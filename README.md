@@ -4,8 +4,6 @@
 
 Player can radomly select letters and then try to answer the longest word. 
 
-Game was build as a hobby-project to demonstrate some of the main React possibilities.
-
 ## 🔸 Getting started
 
 1. ```yarn install```
